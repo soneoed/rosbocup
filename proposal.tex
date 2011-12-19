@@ -25,7 +25,7 @@
 %linkcolor = blue,	 		%Color for normal internal links.
 %anchorcolor = black, 		%Color for anchor text. 
 %citecolor = blue, 			%Color for bibligraphical citations in text. 
-%filecolor = magenta, 			%Color for URLs which open local Þles. 
+%filecolor = magenta, 			%Color for URLs which open local ï¿½les. 
 %menucolor = blue,			%Color for Acrobat menu items. 
 %pagecolor = blue, 			%Color for links to other pages. 
 %urlcolor = blue, 			%Color for linked URLs. 
@@ -74,19 +74,58 @@ In this proposal, we suggest that a community owned open--source framework for R
 \end{abstract}
 
 % ------------------------------------------------------------------ Main Text -----------------------------------------------------------------------------------------------
-A significant amount of time spent preparing an entry into a RoboCup soccer league is used on the development of the underlying software framework. Essentially, the software framework provides an abstraction layer that allows software components to communicate with each other, and the robot hardware, in a standard way. The software framework also provides a set of tools to ease the implementation of common tasks, such as serialisation and debugging.
+A significant part of the time spent while preparing an entry into a RoboCup
+soccer league goes into the development of the underlying software framework.
+Essentially, a framework provides an abstraction layer to allow communication
+between hardware and software entities. For the robust functioning of the entire
+robocup logic, the framework also caters for all
+requirements of the underlying platform. Further, it provides a set of tools such as serialisation and debugging which
+come handy while the teams concentrate on developments of the
+robocup logic.
 
-There are numerous examples of software frameworks used in the RoboCup soccer arena \cite{Mcgill2010,Petters2007,Rofer2010b,Kulk2011c}. There are several reasons existing frameworks are not widely adopted by the community. Firstly the frameworks are often very focused on a particular robot platform and league, making the simultaneous support of multiple robot platforms difficult.
+There are numerous examples of software frameworks used in the RoboCup soccer
+arena \cite{Mcgill2010,Petters2007,Rofer2010b,Kulk2011c}. For several
+reasons, existing frameworks are not widely adopted by the community. Most of
+these frameworks, are designed while being focused on a particular
+robot platform and league. While this makes the design easy, however renders
+the reusability of the framework by other teams (having different robot
+platforms) impossible.
 
-The software frameworks also make use of non--standard solutions to standard problems. For example, \cite{Rofer2010b} provides custom vector and serialisation implemenations, when standard implementations are provided in the C++ standard template library, and in C++ boost libraries. This presents a problem to the wide--spread adoption because of the reluctance to learn these custom libraries which are not used outside of RoboCup.
+From the implementation point of view, sometimes frameworks enforce the teams
+to adapt to non--standard solutions to
+standard problems. As an instance, \cite{Rofer2010b} offers customised
+implementations of vectors and serialisation, which are rather more efficienty
+available in the standard C++ libraries like STL and boost. This presents a
+problem to the wide--spread adoption because of the reluctance of the teams to
+learn these custom libraries which would not be used outside of RoboCup.
 
-Another issue with existing software frameworks is the barebones software framework is not released separately. That is, there is no separation between the framework and the actual software modules in the code releases of successful teams. 
+In terms of the availability of source code, most existing
+software frameworks do not release the barebones separately. In the senario
+of most of the robocup competitions, these frameworks are rather released as
+part of the team's code. Thereby leaving the new teams with additional work of
+segregating the robocup logic from the underlying framework. This is especially
+a hinderance to the new teams, who wish to provide different robocup logic.
 
-Willow Garage's ROS is a component--based software framework for robotics \cite{Quigley2009}. ROS has an active community and is widely used in research projects and in industry. Consequently, the use of ROS by RoboCup teams is likely to increase significantly in the coming years. However, using ROS alone does not standardise the software system enough to guarantee the interoperability of the software modules required by a RoboCup soccer team, and few of the platforms used at RoboCup are supported by the existing ROS libraries.
+To solve the above discussed problems in the existing frameworks, Willow
+Garage's Robot Operating System (ROS) comes as an inspiration. ROS is a
+component--based software framework for robotics \cite{Quigley2009}. It has an
+active community and is widely used in research projects and in industry.
+Consequently, the use of ROS by RoboCup teams is likely to increase
+significantly in the coming years. However, adaption of ROS alone does not
+standardise the software system enough to guarantee the interoperability of the
+software modules required by a RoboCup soccer team.
 
-We propose the use of the ROS framework to construct a open--source framework to meet the needs of the RoboCup soccer community. In particular, support for the NAO, the DARWIN-OP, and the 2D and 3D simulation leagues will be added. Furthermore, standard interfaces will be implemented for the common software modules; vision, localisation, behaviour and motion. 
+Therefore, we propose the use of the ROS framework to construct a open--source
+framework to meet the needs of the RoboCup soccer community. In particular, support for
+the NAO, the DARWIN-OP, and the 2D and 3D simulation leagues will be added.
+Furthermore, standard interfaces will be implemented for the common software
+modules; vision, localisation, behaviour and motion.
 
-The new framework will benefit the RoboCup community by allowing the effective sharing of code between teams of the same league, but also between leagues.
+The new framework will benefit the RoboCup community by not only allowing the
+effective sharing of code between teams of the same league, but also between
+leagues. It will provide a barebone platform independent starting point for
+anyone trying to get involved into the Robocup competitions, thereby
+encouraging new teams into the competition. 
 
 
 % ------------------------------------------------------------------ References -----------------------------------------------------------------------------------------------
