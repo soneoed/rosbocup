@@ -1,1 +1,96 @@
-test
+\documentclass{llncs}
+
+% -------------------------------------------- Additional Packages not defined in Paper package ---------------------- %
+\usepackage{url}							% ------- formats urls nicely
+\usepackage{algorithmic}
+\usepackage[sort,compress]{cite}
+
+% ---------------------- Font packages
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}					% ------- Include accented characters
+\usepackage{color}							% ------- Font Colours eg. /textcolor{red}{text that will be red}
+\usepackage{soul}
+
+% ---------------------- Math Packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+% ---------------------- Graphics
+\usepackage{graphicx} %%graphics and normal LaTeX [dvips]
+\usepackage[scriptsize]{subfigure}
+
+% ---------------------- Hyper Referencing
+%\usepackage{hyperref}
+%\hypersetup{colorlinks=true,	% set this to false when printing
+%linkcolor = blue,	 		%Color for normal internal links.
+%anchorcolor = black, 		%Color for anchor text. 
+%citecolor = blue, 			%Color for bibligraphical citations in text. 
+%filecolor = magenta, 			%Color for URLs which open local Þles. 
+%menucolor = blue,			%Color for Acrobat menu items. 
+%pagecolor = blue, 			%Color for links to other pages. 
+%urlcolor = blue, 			%Color for linked URLs. 
+%}
+
+% ---------------------- Additional Tools
+\usepackage{url}			% formats urls nicely
+\usepackage{unitsdef}		% contains definitions for physical units
+
+
+
+% ------------------------------------------------------------------ Begin Document -----------------------------------------------------------------------------------------------
+
+\title{ROSboCup: A ROS--based Framework for RoboCup Soccer}
+
+\author{Robert King\inst{1} \and Shashank Bhatia\inst{2} \and Jason Kulk\inst{2}}
+
+\institute{
+School of Mathematical and Physical Sciences\\ 
+University of Newcastle, Australia\\
+\email{robert.king@newcastle.edu.au}
+\and
+School of Electrical Engineering and Computer Science\\ 
+University of Newcastle, Australia\\
+\email{\{shashank.bhatia, jason.kulk\}@newcastle.edu.au}
+}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+% I always forget how to write an abstract:
+% What is the general topic and why it is important
+% What is the specific problem? What methods. The results
+% Wider significance.
+
+\begin{abstract}
+The development of software systems to compete in RoboCup's soccer leagues is a large and complicated task. The software framework on which the system is based places restrictions on the software in terms of supporting multiple platforms and leagues, and on its modularity. 
+
+There are many existing frameworks in the RoboCup domain, however, they are not widely used outside of the authoring team, and are not shared across different robot platforms or leagues. Furthermore, the frameworks have little application outside of RoboCup.
+
+In this proposal, we suggest that a community owned open--source framework for RoboCup's soccer leagues be developed based on Willow Garage's Robot Operating System (ROS).
+
+\end{abstract}
+
+% ------------------------------------------------------------------ Main Text -----------------------------------------------------------------------------------------------
+A significant amount of time spent preparing an entry into a RoboCup soccer league is used on the development of the underlying software framework. Essentially, the software framework provides an abstraction layer that allows software components to communicate with each other, and the robot hardware, in a standard way. The software framework also provides a set of tools to ease the implementation of common tasks, such as serialisation and debugging.
+
+There are numerous examples of software frameworks used in the RoboCup soccer arena \cite{Mcgill2010,Petters2007,Rofer2010b,Kulk2011c}. There are several reasons existing frameworks are not widely adopted by the community. Firstly the frameworks are often very focused on a particular robot platform and league, making the simultaneous support of multiple robot platforms difficult.
+
+The software frameworks also make use of non--standard solutions to standard problems. For example, \cite{Rofer2010b} provides custom vector and serialisation implemenations, when standard implementations are provided in the C++ standard template library, and in C++ boost libraries. This presents a problem to the wide--spread adoption because of the reluctance to learn these custom libraries which are not used outside of RoboCup.
+
+Another issue with existing software frameworks is the barebones software framework is not released separately. That is, there is no separation between the framework and the actual software modules in the code releases of successful teams. 
+
+Willow Garage's ROS is a component--based software framework for robotics \cite{Quigley2009}. ROS has an active community and is widely used in research projects and in industry. Consequently, the use of ROS by RoboCup teams is likely to increase significantly in the coming years. However, using ROS alone does not standardise the software system enough to guarantee the interoperability of the software modules required by a RoboCup soccer team, and few of the platforms used at RoboCup are supported by the existing ROS libraries.
+
+We propose the use of the ROS framework to construct a open--source framework to meet the needs of the RoboCup soccer community. In particular, support for the NAO, the DARWIN-OP, and the 2D and 3D simulation leagues will be added. Furthermore, standard interfaces will be implemented for the common software modules; vision, localisation, behaviour and motion. 
+
+The new framework will benefit the RoboCup community by allowing the effective sharing of code between teams of the same league, but also between leagues.
+
+
+% ------------------------------------------------------------------ References -----------------------------------------------------------------------------------------------
+\bibliographystyle{IEEEtran}
+\bibliography{rosbocup}
+
+\end{document}
